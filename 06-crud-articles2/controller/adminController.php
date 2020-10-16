@@ -42,10 +42,42 @@ if(isset($_GET["detailArticle"])){
 
 if(isset($_GET['p'])&&$_GET['p']=="create"){
 
+    // si on a envoyé le formulaire (toutes les variables POST attendues existent)
+    if(isset($_POST['titre'],$_POST['texte'],$_POST['idusers'])){
+
+        // traitement des variables
+        $titre= htmlspecialchars(strip_tags(trim($_POST['titre'])),ENT_QUOTES);
+        // exception pour le strip_tags qui va accepter
+        $texte= htmlspecialchars(strip_tags(trim($_POST['texte']),'<p><br><a><img><h4><h5><b><strong><i><ul><li>'),ENT_QUOTES);
+        $idusers = (int) $_POST['idusers'];
+
+        // si un des champs est vide (n'a pas réussi la validation des variables POST)
+        if(empty($titre)||empty($texte)||empty($idusers)){
+            $erreur = "Format des champs non valides";
+        }else{
+            // insertion d'article
+            $insert = insertArticle($db,$titre,$texte,$idusers);
+            if($insert){
+                header("Location: ./");
+                exit;
+            }else{
+
+                /*
+                 * ICI
+                 */
+
+
+                $erreur ="Problème lors de l'insertion";
+            }
+
+        }
+    }
+
     // on récupère tous les auteurs potentiels
     $recup_autors = AllUser($db);
 
     require_once "view/adminInsertArticleView.php";
+    //var_dump($_POST);
     exit();
 }
 
