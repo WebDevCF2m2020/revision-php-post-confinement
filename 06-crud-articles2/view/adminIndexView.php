@@ -15,7 +15,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
-
+                <li class="nav-item">
+                    <a class="nav-link" href="?p=create">Création d'un nouvel article</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?p=disconnect">Déconnexion</a>
                 </li>
@@ -33,11 +35,33 @@
             <div class="col-lg-8 col-md-7 col-sm-6">
                 <h1>Administration</h1>
                 <p class="lead">Bienvenue <?=$_SESSION['thename']?>, vous êtes <?=$_SESSION['droit_name']?></p>
-                <hr>
+                <?php
+                if(isset($erreur)):
+                    ?>
 
-    <?php var_dump($_SESSION) ?>
+                    <h1><?=$erreur?></h1>
 
+                <?php
+                else:
+                    ?>
+                    <h2>Tous les articles</h2>
+                    <p class="lead">Nombre d'articles: <?=$nbTotalArticles?></p>
+                    <?php
+                    // affichage de la pagination
+                    echo $pagination;
+                    // tant que nous avons des articles
+                    foreach($recupPagination as $item):
+                        ?>
+                        <h3><?=$item["titre"]?></h3>
+                        <p><?=cutTheTextModel($item["texte"])?> ... <a href="?detailArticle=<?=$item["idarticles"]?>">Lire la suite</a></p>
+                        <h5>Par <?=$item["thename"]?> <?=functionDateModel($item["thedate"])?></h5>
+                        <hr>
+                    <?php
+                    endforeach;
+                    echo $pagination;
+                endif;
 
+                ?>
             </div>
 
         </div>

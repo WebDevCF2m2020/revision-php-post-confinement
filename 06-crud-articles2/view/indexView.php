@@ -48,7 +48,7 @@
                 // tant que nous avons des articles
                 foreach($recupPagination as $item):
                 ?>
-                <h3><?=$item["titre"]?></h3>
+                <h4><?=$item["titre"]?></h4>
                     <p><?=cutTheTextModel($item["texte"])?> ... <a href="?detailArticle=<?=$item["idarticles"]?>">Lire la suite</a></p>
                 <h5>Par <?=$item["thename"]?> <?=functionDateModel($item["thedate"])?></h5>
                 <hr>
