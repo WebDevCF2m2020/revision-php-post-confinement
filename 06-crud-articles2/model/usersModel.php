@@ -19,3 +19,8 @@ function connectUser($connect,$login,$pwd){
     }
 
 }
+
+// find all user (Rédacteur and administateur)
+function AllUser($c){
+    $sql="SELECT * FROM "
+}

@@ -38,6 +38,14 @@ if(isset($_GET["detailArticle"])){
 
 }
 
+// on a cliqué sur créer un article
+
+if(isset($_GET['p'])&&$_GET['p']=="create"){
+
+    require_once "view/adminInsertArticleView.php";
+    exit();
+}
+
 // Mise en place de la pagination
 
 
