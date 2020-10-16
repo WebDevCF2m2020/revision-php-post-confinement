@@ -46,14 +46,15 @@
                 <?php
                 else:
                 ?>
-                <h2>Notre article : <?=$recup['titre']?></h2>
+                <h3>Notre article : <?=$recup['titre']?></h3>
                     <p class="lead"><a href="./">Retournez à l'accueil de l'admin</a></p>
                     <p>Actions : <a href="?p=update&id=<?=$recup["idarticles"]?>" title="Mettre à jour l'article"><img src="img/update.png" alt="update" /></a>
                         <a href="?p=delete&id=<?=$recup["idarticles"]?>" title="Supprimer l'article"><img src="img/delete.png" alt="delete" /></a></p>
                     <p><?=nl2br($recup["texte"])?></p>
                 <h5>Par <?=$recup["thename"]?> <?=functionDateModel($recup["thedate"])?></h5>
                 <hr>
-
+                    <p>Actions : <a href="?p=update&id=<?=$recup["idarticles"]?>" title="Mettre à jour l'article"><img src="img/update.png" alt="update" /></a>
+                        <a href="?p=delete&id=<?=$recup["idarticles"]?>" title="Supprimer l'article"><img src="img/delete.png" alt="delete" /></a></p>
                 <?php
 
                 endif;
