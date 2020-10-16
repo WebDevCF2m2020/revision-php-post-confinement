@@ -42,6 +42,9 @@ if(isset($_GET["detailArticle"])){
 
 if(isset($_GET['p'])&&$_GET['p']=="create"){
 
+    // on récupère tous les auteurs potentiels
+    $recup_autors = AllUser($db);
+
     require_once "view/adminInsertArticleView.php";
     exit();
 }
