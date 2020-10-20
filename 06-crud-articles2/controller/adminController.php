@@ -118,6 +118,33 @@ if(isset($_GET['p'])&&$_GET['p']=="delete"){
     exit();
 }
 
+// on a cliqué sur mettre à jour un article
+
+if(isset($_GET['p'])&&$_GET['p']=="update"){
+
+    // si la variable d'id existe et est une chaîne de caractère ne contenant qu'un entier positif non signé
+    if(isset($_GET['id'])&&ctype_digit($_GET['id'])){
+        // conversion en numérique entier
+        $id = (int) $_GET['id'];
+
+        // on récupère l'article en question
+        $recupArticle =articleLoadFull($db,$id);
+        // on récupère tous les auteurs
+        $recupUsers = AllUser($db);
+
+
+    }else{
+        $erreur = "Format de l'id non valable";
+    }
+
+
+    require_once "view/adminUpdateArticleView.php";
+    //var_dump($_POST);
+    exit();
+}
+
+
+
 
 // Mise en place de la pagination
 
