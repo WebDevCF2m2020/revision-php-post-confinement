@@ -47,7 +47,7 @@
 
                 <?php
                 else:
-                var_dump($recupArticle,$recupUsers);
+                // var_dump($recupArticle,$recupUsers);
                 endif;
                 ?>
                 <hr>
@@ -55,17 +55,26 @@
                 <form action="" name="insertion" method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Votre titre :</label>
-                        <input name="titre" type="text" class="form-control"  placeholder="Votre titre" required>
+                        <input name="titre" type="text" class="form-control"  placeholder="Votre titre" value="<?=$recupArticle['titre']?>" required>
 
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Votre texte</label>
-                        <textarea name="texte" class="form-control"  placeholder="Votre texte" required></textarea>
+                        <textarea name="texte" class="form-control"  placeholder="Votre texte" required><?=$recupArticle['texte']?></textarea>
                     </div>
+                    <div class="form-group row">
+                        <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                        <div class="col-10">
+                            <input name="thedate" class="form-control" type="text" value="<?=$recupArticle['thedate']?>" id="example-date-input">
+                        </div>
+                    </div>
+                    <!-- champs caché utile pour l'id -->
+                    <input type="hidden" name="idusers" value="<?=$recupArticle['idarticles']?>">
                     <div class="form-group">
                         <label for="exampleInputPassword1">Choix de l'auteur</label>
                         <?php
                         foreach($recupUsers as $item):
+                            // récupération de l'idusers de $recupArticles
                         ?>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="idusers" id="exampleRadios1" value="<?=$item['idusers']?>" required>
@@ -78,7 +87,7 @@
                         endforeach;
                         ?>
                     </div>
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <button type="submit" class="btn btn-primary">Mettre à jour</button>
                 </form>
             </div>
 
