@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nos articles</title>
+    <title>Supprimer un article</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.css" media="screen">
     <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
 </head>
@@ -17,7 +17,10 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="?p=connect">Connexion</a>
+                    <a class="nav-link" href="?p=create" title="Ajouter un article">Création d'un nouvel article</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?p=disconnect">Déconnexion</a>
                 </li>
 
             </ul>
@@ -31,33 +34,28 @@
     <div class="page-header" id="banner">
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1>Administration</h1>
+                <p class="lead">Bienvenue <?=$_SESSION['thename']?>, vous êtes <?=$_SESSION['droit_name']?></p>
+                <h2>Supprimer un article</h2>
+                <p class="lead"><a href="./">Retournez à l'accueil de l'admin</a></p>
                 <?php
                 if(isset($erreur)):
                 ?>
 
-                <h1><?=$erreur?></h1>
+                <h2><?=$erreur?></h2>
+
 
                 <?php
                 else:
                 ?>
-                <h1>Tous nos articles</h1>
-                <p class="lead">Nombre d'articles: <?=$nbTotalArticles?></p>
-                <?php
-                // affichage de la pagination
-                echo $pagination;
-                // tant que nous avons des articles
-                foreach($recupPagination as $item):
-                ?>
-                <h4><?=$item["titre"]?></h4>
-                    <p><?=cutTheTextModel($item["texte"])?> ... <a href="?detailArticle=<?=$item["idarticles"]?>">Lire la suite</a></p>
-                <h5>Par <?=$item["thename"]?> <?=functionDateModel($item["thedate"])?></h5>
-                <hr>
-                <?php
-                endforeach;
-                echo $pagination;
-                endif;
 
+                <?php
+                endif;
                 ?>
+                <hr>
+
+               <h1>ICI on supprime</h1>
+
             </div>
 
         </div>

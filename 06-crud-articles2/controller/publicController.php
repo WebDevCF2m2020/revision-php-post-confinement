@@ -82,7 +82,7 @@ if(isset($_GET['pg'])){
 // calcul pour la requête - nombre d'articles totaux, sans erreurs SQL ce sera toujours un int, de 0 à ...
 $nbTotalArticles = countAllArticles($db);
 
-// Calcul pour avoir la première partie du LIMIT *, 10 dans la requête stockée dans articlesModel.php nommée articlesLoadResumePagination()
+// Calcul pour avoir la première partie du LIMIT *, 5 dans la requête stockée dans articlesModel.php nommée articlesLoadResumePagination()
 $debut_tab = ($pgactu-1)*NUMBER_ARTICLE_PER_PAGE;
 
 // requête avec le LIMIT appliqué

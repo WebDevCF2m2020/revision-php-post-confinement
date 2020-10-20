@@ -19,3 +19,10 @@ function connectUser($connect,$login,$pwd){
     }
 
 }
+
+// find all user (Rédacteur and administateur)
+function AllUser($c){
+    $sql="SELECT idusers, thename FROM users ORDER BY thename ASC;";
+    $request = mysqli_query($c,$sql);
+    return mysqli_fetch_all($request,MYSQLI_ASSOC);
+}
