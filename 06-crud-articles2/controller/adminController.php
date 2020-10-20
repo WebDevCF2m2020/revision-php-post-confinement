@@ -62,11 +62,6 @@ if(isset($_GET['p'])&&$_GET['p']=="create"){
                 exit;
             }else{
 
-                /*
-                 * ICI
-                 */
-
-
                 $erreur ="Problème lors de l'insertion";
             }
 
@@ -80,6 +75,29 @@ if(isset($_GET['p'])&&$_GET['p']=="create"){
     //var_dump($_POST);
     exit();
 }
+
+
+// on a cliqué sur supprimer un article
+
+if(isset($_GET['p'])&&$_GET['p']=="delete"){
+
+    // si la variable d'id existe et est une chaîne de caractère ne contenant qu'un entier positif non signé
+    if(isset($_GET['id'])&&ctype_digit($_GET['id'])){
+        // conversion en numérique entier
+        $id = (int) $_GET['id'];
+
+
+
+    }else{
+        $erreur = "Format de l'id non valable";
+    }
+
+
+    require_once "view/adminDeleteArticleView.php";
+    //var_dump($_POST);
+    exit();
+}
+
 
 // Mise en place de la pagination
 
