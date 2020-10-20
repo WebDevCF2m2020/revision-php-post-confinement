@@ -86,6 +86,16 @@ if(isset($_GET['p'])&&$_GET['p']=="delete"){
         // conversion en numérique entier
         $id = (int) $_GET['id'];
 
+        // on récupère l'article en question
+        $recup =articleLoadFull($db,$id);
+
+        // pas de récupération
+        if(!$recup){
+            $erreur = "Article introuvable";
+        }else{
+            $title = $recup["titre"];
+            $author = $recup['thename'];
+        }
 
 
     }else{

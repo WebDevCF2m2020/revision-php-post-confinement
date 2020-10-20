@@ -48,13 +48,13 @@
                 <?php
                 else:
                 ?>
-
+<h3>Voulez-vous vraiment supprimer: <br><br><?=$title?><br><br> écrit par <br><br><?=$author?></h3>
+                <a href="?p=delete&id=<?=$id?>&ok"><button type="button">Oui</button></a> | <button  type="button" onclick="history.go(-1);">Non</button>
                 <?php
                 endif;
                 ?>
                 <hr>
 
-               <h1>ICI on supprime</h1>
 
             </div>
 
