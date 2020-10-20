@@ -74,10 +74,11 @@
                         <label for="exampleInputPassword1">Choix de l'auteur</label>
                         <?php
                         foreach($recupUsers as $item):
-                            // récupération de l'idusers de $recupArticles
+                            // ternaire qui vérifie la récupération de l'idusers de 2 requêtes différentes: $recupArticles et comparaison avec celui de $recupUsers - permet de choisir l'auteur d'origine de l'article
+                            $choice = ($item['idusers']==$recupArticle['idusers'])? "checked": "";
                         ?>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="idusers" id="exampleRadios1" value="<?=$item['idusers']?>" required>
+                                <input class="form-check-input" type="radio" name="idusers" id="exampleRadios1" value="<?=$item['idusers']?>" required <?=$choice?>>
                                 <label class="form-check-label" for="exampleRadios1">
                                     <?=$item['thename']?>
                                 </label>
