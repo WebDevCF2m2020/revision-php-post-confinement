@@ -86,3 +86,11 @@ function insertArticle($c,$title,$text,$id){
     $request = mysqli_query($c,$sql);
     return ($request)?true:false;
 }
+
+// suppression d'un article via son ID
+
+function deleteArticle($connect,$id){
+    $id = (int) $id;
+    $sql="DELETE FROM articles WHERE idarticles=$id";
+    return (@mysqli_query($connect,$sql))? true : false;
+}

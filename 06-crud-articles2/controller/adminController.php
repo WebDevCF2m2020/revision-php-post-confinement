@@ -95,6 +95,16 @@ if(isset($_GET['p'])&&$_GET['p']=="delete"){
         }else{
             $title = $recup["titre"];
             $author = $recup['thename'];
+            // on clique sur confirmation de suppression
+            if(isset($_GET['ok'])){
+                // on tente de supprimer l'article
+                if(deleteArticle($db,$id)){
+                    $erreur="Suppression effectuée, vous allez être rédirigé dans 5 secondes <script>setTimeout(function(){ document.location.href = './' }, 5000);</script>";
+                }else{
+                    $erreur="Echec de la suppression, erreur inconnue, Veuillez recommencer!";
+                }
+            }
+
         }
 
 
