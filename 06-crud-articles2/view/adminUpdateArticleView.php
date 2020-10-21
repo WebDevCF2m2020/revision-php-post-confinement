@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <!-- champs caché utile pour l'id -->
-                    <input type="hidden" name="idusers" value="<?=$recupArticle['idarticles']?>">
+                    <input type="hidden" name="idarticles" value="<?=$recupArticle['idarticles']?>">
                     <div class="form-group">
                         <label for="exampleInputPassword1">Choix de l'auteur</label>
                         <?php
@@ -78,7 +78,7 @@
                             $choice = ($item['idusers']==$recupArticle['idusers'])? "checked": "";
                         ?>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="idusers" id="exampleRadios1" value="<?=$item['idusers']?>" required <?=$choice?>>
+                                <input class="form-check-input" type="radio" name="users_idusers" id="exampleRadios1" value="<?=$item['idusers']?>" required <?=$choice?>>
                                 <label class="form-check-label" for="exampleRadios1">
                                     <?=$item['thename']?>
                                 </label>

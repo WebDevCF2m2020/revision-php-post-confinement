@@ -94,3 +94,35 @@ function deleteArticle($connect,$id){
     $sql="DELETE FROM articles WHERE idarticles=$id";
     return (@mysqli_query($connect,$sql))? true : false;
 }
+
+/*
+ * mise à jour de l'article
+ * $db -> connexion mysqli
+ * $datas -> array de $_POST
+ * $id -> variable GET idarticles
+ */
+
+function updateArticle($db,$datas,$id){
+    // traîtement des variables
+    // $_GET
+    $id = (int) $id;
+    // $_POST => on pourrait utiliser extract(), plus rapide mais dangereux et non sécurisé sans mettre les mêmes lignes que celles ci-dessous
+    $idarticles = (int) $datas['idarticles'];
+    $titre = htmlspecialchars(strip_tags(trim($datas['titre'])),ENT_QUOTES);
+    // exception pour le strip_tags qui va accepter les balises html entre allowable_tags
+    $texte= htmlspecialchars(strip_tags(trim($datas['texte']),'<p><br><a><img><h4><h5><b><strong><i><ul><li>'),ENT_QUOTES);
+    $thedate = htmlspecialchars(strip_tags(trim($datas['thedate'])),ENT_QUOTES);
+    $users_idusers = (int) $datas['users_idusers'];
+
+    // quelqu'un essaie de modifier un autre article que celui affiché
+    if($id!=$idarticles) return "Inutile d'essayer de supprimer un article de quelqu'un d'autre";
+
+    if(empty($id)||empty($idarticles)||empty($titre)||
+        empty($texte)||empty($thedate)||empty($users_idusers)) return "Vos champs ne sont pas correctement remplis";
+
+    $sql ="UPDATE articles SET titre = '$titre', texte ='$texte',thedate='$thedate', users_idusers= $users_idusers WHERE idarticles = $idarticles";
+
+   return (mysqli_query($db,$sql))? true : "Erreur inconnue lors de la modification, Veuillez recommencer";
+
+
+}

@@ -127,8 +127,26 @@ if(isset($_GET['p'])&&$_GET['p']=="update"){
         // conversion en numérique entier
         $id = (int) $_GET['id'];
 
+        // si le formualire est envoyé
+        if(isset($_POST['users_idusers'])){
+
+            //var_dump($_POST);
+            $update = updateArticle($db,$_POST,$id);
+
+            // si l'update a eu lieue
+            if($update===true){
+                header("Location: ./?detailArticle=$id");
+                exit();
+            }
+            $erreur = $update;
+
+        }
+
+
+        // chargement pour la vue
+
         // on récupère l'article en question
-        $recupArticle =articleLoadFull($db,$id);
+        $recupArticle = articleLoadFull($db,$id);
         // on récupère tous les auteurs
         $recupUsers = AllUser($db);
 
