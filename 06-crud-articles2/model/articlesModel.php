@@ -112,6 +112,13 @@ function updateArticle($db,$datas,$id){
     // exception pour le strip_tags qui va accepter les balises html entre allowable_tags
     $texte= htmlspecialchars(strip_tags(trim($datas['texte']),'<p><br><a><img><h4><h5><b><strong><i><ul><li>'),ENT_QUOTES);
     $thedate = htmlspecialchars(strip_tags(trim($datas['thedate'])),ENT_QUOTES);
+
+    // on vérifie si la date valide existe dans la chaîne, si oui elle est mise dans $tab et séparée du reste
+    $tab = preg_grep("/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/",[$thedate]);
+    // si on ne la trouve pas, on met la date du jour
+    if(empty($tab)) $thedate = date("Y-m-d H:i:s");
+
+
     $users_idusers = (int) $datas['users_idusers'];
 
     // quelqu'un essaie de modifier un autre article que celui affiché
