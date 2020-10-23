@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <title>Supprimer un article</title>
     <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-<link rel="stylesheet" href="css/custom.min.css" media="screen"></head>
+    <link rel="stylesheet" href="css/custom.min.css" media="screen">
+</head>
 <body>
 <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <div class="container">
         <a href="./" class="navbar-brand">Accueil</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -34,21 +36,25 @@
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-6">
                 <h1>Administration</h1>
-                <p class="lead">Bienvenue <?=$_SESSION['thename']?>, vous êtes <?=$_SESSION['droit_name']?></p>
+                <p class="lead">Bienvenue <?= $_SESSION['thename'] ?>, vous êtes <?= $_SESSION['droit_name'] ?></p>
                 <h2>Supprimer un article</h2>
                 <p class="lead"><a href="./">Retournez à l'accueil de l'admin</a></p>
                 <?php
-                if(isset($erreur)):
-                ?>
+                if (isset($erreur)):
+                    ?>
 
-                <h2><?=$erreur?></h2>
+                    <h2><?= $erreur ?></h2>
 
 
                 <?php
                 else:
-                ?>
-<h3>Voulez-vous vraiment supprimer: <br><br><?=$title?><br><br> écrit par <br><br><?=$author?></h3>
-                <a href="?p=delete&id=<?=$id?>&ok"><button type="button">Oui</button></a> | <button  type="button" onclick="history.go(-1);">Non</button>
+                    ?>
+                    <h3>Voulez-vous vraiment supprimer: <br><br><?= $title ?><br><br> écrit par <br><br><?= $author ?>
+                    </h3>
+                    <a href="?p=delete&id=<?= $id ?>&ok">
+                        <button type="button">Oui</button>
+                    </a> |
+                    <button type="button" onclick="history.go(-1);">Non</button>
                 <?php
                 endif;
                 ?>
@@ -60,8 +66,8 @@
         </div>
     </div>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/custom.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 </html>
