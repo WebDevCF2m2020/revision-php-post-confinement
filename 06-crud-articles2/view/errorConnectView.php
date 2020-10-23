@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Erreur de connexion</title>
-    <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.css" media="screen">
-    <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
-</head>
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+<link rel="stylesheet" href="css/custom.min.css" media="screen"></head>
 <body>
 <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <div class="container">
@@ -39,9 +38,8 @@
         </div>
     </div>
 
-<script src="https://bootswatch.com/_vendor/jquery/dist/jquery.min.js"></script>
-<script src="https://bootswatch.com/_vendor/popper.js/dist/umd/popper.min.js"></script>
-<script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="https://bootswatch.com/_assets/js/custom.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/custom.js"></script>
 </body>
 </html>
